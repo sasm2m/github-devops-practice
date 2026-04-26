@@ -42,6 +42,8 @@ jobs:
         echo "- NODE_ENV: ${NODE_ENV:-no definida}"
         echo "- CI: $CI"
         echo "- GITHUB_REF: $GITHUB_REF"
+        echo "API_KEY ${{ secrets.API_KEY }}"
+        echo "DATABASE_URL ${{ secrets.DATABASE_URL }}"
       env:
         API_KEY: ${{ secrets.API_KEY }}
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
