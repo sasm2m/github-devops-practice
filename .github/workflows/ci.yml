@@ -35,11 +35,13 @@ jobs:
         test -f .env.example && echo "✓ .env.example existe"
         test -f package.json && echo "✓ package.json existe"
         test -f README.md && echo "✓ README.md existe"
-        echo "✅ Validación completada"
-    
+        echo "✅ Validación completada"  
     - name: 🔍 Verificar Variables de Entorno
       run: |
         echo "Variables disponibles en CI:"
         echo "- NODE_ENV: ${NODE_ENV:-no definida}"
-        echo "- CI: $CI (siempre true en GitHub Actions)"
+        echo "- CI: $CI"
         echo "- GITHUB_REF: $GITHUB_REF"
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
